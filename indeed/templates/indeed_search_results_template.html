@@ -1,6 +1,14 @@
 <html>
 	<head>
 		<title>{{ title }}</title>
+		<style>
+			.good_terms {
+				color: green;
+			}
+			.bad_terms {
+				color: red;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>{{ title }}</h1>
@@ -8,7 +16,7 @@
 		<span>Report generated on : {{ date }}</span>
 		<ul>
 			{% for record in record_list %}
-			<li><a target="_blank" href="{{ record.href }}">{{ record.title }}</a></li>
+			<li><a target="_blank" href="{{ record.href }}">{{ record.title }}</a> <span class="good_terms">Good terms: {{ record.good_term_count }}  {% if record.good_term_count %} {{ record.good_term_list }} {% endif %}</span> <span class="bad_terms">Bad terms: {{ record.bad_term_count }} {% if record.bad_term_count %} {{ record.bad_term_list }} {% endif %}</span></li>
 			{% endfor %}
 		</ul>
 	</body>
