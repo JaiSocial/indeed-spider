@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+	</head>
+	<body>
+		<h1>{{ title }}</h1>
+		<span>Initial search URL: <a target="_blank" href="{{ start_url }}">{{ start_url }}</a></span><br />
+		<span>Report generated on : {{ date }}</span>
+		<ul>
+			{% for record in record_list %}
+			<li><a target="_blank" href="{{ record.href }}">{{ record.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
